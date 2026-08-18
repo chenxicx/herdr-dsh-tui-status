@@ -1,0 +1,5 @@
+# dsh plugin add 后由 DSH 自动合入 profile；无需手工编辑 dsh-TUI 的原有配置。
+- insert:
+    - id: xichen-herdr-dsh-status
+      name: '@xichen/herdr-dsh-status'
+      inject: [agents]

@@ -1,0 +1,21 @@
+id = "xichen.herdr-dsh-status"
+name = "HerdR dsh-TUI Status"
+version = "0.1.0"
+description = "将 dsh-TUI 的真实 Agent 工作状态同步到 HerdR Agents 栏"
+min_herdr_version = "0.8.0"
+platforms = ["linux"]
+
+# 创建一个独立的 dsh-TUI Pane。也可直接在任意 HerdR 终端输入 dsh-tui；
+# 只要该终端继承 HERDR_PANE_ID，状态桥接插件就会自动生效。
+[[actions]]
+id = "open-dsh-tui"
+title = "启动 dsh-TUI"
+description = "在独立 Pane 启动 dsh-TUI，并在 Agents 栏显示实时状态。"
+contexts = ["workspace"]
+command = ["sh", "-c", "\"$HERDR_BIN_PATH\" plugin pane open --plugin xichen.herdr-dsh-status --entrypoint dsh-tui --placement split --focus"]
+
+[[panes]]
+id = "dsh-tui"
+title = "dsh-TUI"
+placement = "split"
+command = ["sh", "scripts/open-dsh-tui.sh"]
